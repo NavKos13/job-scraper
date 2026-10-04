@@ -15,22 +15,7 @@ class JobEvaluation(BaseModel):
 client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
 
 CANDIDATE_PROFILE = """
-Candidate Context:
-- Current 3rd-year Software Engineering undergraduate student at Ben-Gurion University.
-- Former Lead Missile Systems Technician (naval electronics/hardware diagnostics).
-
-Acceptance Criteria:
-- Experience Level: Student / Intern / Junior / Graduate (0-1 years required experience, or positions accepting current B.Sc. students).
-- Primary Tech & Domain (Highest Priority): Low-level, Embedded, Firmware, Systems Programming, or Chip Simulation / Hardware-Software Integration using Rust, C++, or Python.
-- Secondary Domain (Accepted): Full Stack, Backend, or Consumer/Desktop/Mobile Application Development (using Rust, Python, C++, C#/.NET, Flutter/Dart, or TypeScript).
-- Locations: Be'er Sheva, Southern District (e.g., Ashdod, Omer, Kiryat Gat), Remote, or Hybrid within direct train access from Be'er Sheva (e.g., Rehovot, Tel Aviv).
-
-Strict Rejection Criteria (is_relevant = False):
-- Roles requiring 2+ years of professional industry experience (e.g., "3+ years required", Mid-level, Senior, Tech Lead, Staff).
-- Roles requiring a degree that does not include Computer Science/Software Engineering
-- Positions that explicitly state "Full-time only with degree already completed" when student/part-time flexibility is not offered.
-- Non-developer roles (Technical Support, IT Helpdesk, Sales Engineering, Manual QA with no automation/scripting, HR).
-- Tech stacks limited entirely to enterprise legacy stacks outside target domains (e.g., pure legacy COBOL, PHP/WordPress).
+DELETE ME AND FILL IN YOUR PERSONAL CANDIDATE PROFILE HERE
 """
 
 
@@ -45,6 +30,7 @@ def evaluate_job_post(post_text: str) -> JobEvaluation:
     {post_text}
     """
 
+    # INFO: Choose the model you want to use here.
     response = client.models.generate_content(
         model="gemini-3.6-flash",
         contents=prompt,
