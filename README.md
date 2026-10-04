@@ -189,10 +189,11 @@ python -u main.py
 * **Resetting Cache:** To re-evaluate all current listings from scratch, delete the local cache file:
 ```bash
 rm seen_posts.db
+
 # Or on Windows PowerShell:
 Remove-Item seen_posts.db -ErrorAction Ignore
-
 ```
+Or you can just delete it manually like any other file.
 
 
 
@@ -221,21 +222,9 @@ To run the scraper automatically once or twice a day:
 
 | File | Purpose |
 | --- | --- |
-| `main.py` | Orchestrates the Facebook and LinkedIn scraping passes.
-
- |
-| `linkedin_scraper.py` | Fetches listings via LinkedIn's guest endpoint and parses job metadata.
-
- |
-| `evaluator.py` | Calls the Gemini API with structured Pydantic schema validation.
-
- |
-| `notifier.py` | Formats and dispatches markdown alerts to your Telegram chat.
-
- |
-| `db.py` | Lightweight SQLite helper for tracking seen post IDs.
-
- |
-| `login.py` | Headed browser launcher for logging into Facebook once.
-
- |
+| `main.py` | Orchestrates the Facebook and LinkedIn scraping passes.|
+| `linkedin_scraper.py` | Fetches listings via LinkedIn's guest endpoint and parses job metadata.|
+| `evaluator.py` | Calls the Gemini API with structured Pydantic schema validation.|
+| `notifier.py` | Formats and dispatches markdown alerts to your Telegram chat.|
+| `db.py` | Lightweight SQLite helper for tracking seen post IDs.|
+| `login.py` | Headed browser launcher for logging into Facebook once.|
